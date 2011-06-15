@@ -3,9 +3,9 @@ class PayerMappingServiceController < ApplicationController
   #wsdl_service_name 'PayerMapping'
 
   def update_edc_payer_mapping(key, mapping)
-    response = WebService::Response.new
-    response.success = true
-    response
+    rsp = WebService::Response.new
+    rsp.success = true
+    rsp
   end
   
   def update_eft_payer_mapping(key, mapping)

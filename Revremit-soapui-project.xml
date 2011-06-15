@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project name="Revremit" resourceRoot="" soapui-version="4.0.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="PayerMappingServiceBinding" type="wsdl" bindingName="{urn:ActionWebService}PayerMappingServiceBinding" soapVersion="1_1" anonymous="optional" definition="file:/Users/adavis/Desktop/payer_mapping.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/Users/adavis/Desktop/payer_mapping.wsdl"><con:part><con:url>file:/Users/adavis/Desktop/payer_mapping.wsdl</con:url><con:content><![CDATA[<definitions name="" targetNamespace="urn:ActionWebService" xmlns:typens="urn:ActionWebService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+<con:soapui-project name="Revremit" resourceRoot="" soapui-version="4.0.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="PayerMappingServiceBinding" type="wsdl" bindingName="{urn:ActionWebService}PayerMappingServiceBinding" soapVersion="1_1" anonymous="optional" definition="file:/Users/adavis/Desktop/payer_mapping.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/Users/adavis/Desktop/payer_mapping.wsdl"><con:part><con:url>file:/Users/adavis/Desktop/payer_mapping.wsdl</con:url><con:content><![CDATA[<definitions name="" targetNamespace="urn:ActionWebService" xmlns:typens="urn:ActionWebService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns="http://schemas.xmlsoap.org/wsdl/">
   <types>
     <xsd:schema targetNamespace="urn:ActionWebService" xmlns="http://www.w3.org/2001/XMLSchema">
       <xsd:complexType name="Response">
@@ -135,10 +135,10 @@
   </binding>
   <service name="Service">
     <port name="PayerMappingServicePort" binding="typens:PayerMappingServiceBinding">
-      <soap:address location="http://localhost:3000/payer_mapping_service/api"/>
+      <soap:address location="http://10.0.127.139/payer_mapping_service/api"/>
     </port>
   </service>
-</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:3000/payer_mapping_service/api</con:endpoint></con:endpoints><con:operation isOneWay="false" action="/payer_mapping_service/api/UpdateEdcPayerMapping" name="UpdateEdcPayerMapping" bindingOperationName="UpdateEdcPayerMapping" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:3000/payer_mapping_service/api</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:ActionWebService">
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:3000/payer_mapping_service/api</con:endpoint><con:endpoint>http://10.0.127.139/payer_mapping_service/api</con:endpoint></con:endpoints><con:operation isOneWay="false" action="/payer_mapping_service/api/UpdateEdcPayerMapping" name="UpdateEdcPayerMapping" bindingOperationName="UpdateEdcPayerMapping" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.0.127.139/payer_mapping_service/api</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:ActionWebService">
    <soapenv:Header/>
    <soapenv:Body>
       <urn:UpdateEdcPayerMapping soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
@@ -166,7 +166,35 @@
          </mapping>
       </urn:UpdateEdcPayerMapping>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="/payer_mapping_service/api/UpdateEdcPayerMapping"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="/payer_mapping_service/api/UpdateEftPayerMapping" name="UpdateEftPayerMapping" bindingOperationName="UpdateEftPayerMapping" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:3000/payer_mapping_service/api</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:ActionWebService">
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="/payer_mapping_service/api/UpdateEdcPayerMapping"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:3000/payer_mapping_service/api</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:ActionWebService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:UpdateEdcPayerMapping soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <key xsi:type="xsd:string">?</key>
+         <mapping xsi:type="urn:PayerMappingEdcDto">
+            <!--You may enter the following 10 items in any order-->
+            <payer_name xsi:type="xsd:string">?</payer_name>
+            <payer_address_info xsi:type="urn:PayerAddressDTO">
+               <!--You may enter the following 6 items in any order-->
+               <state_code xsi:type="xsd:string">?</state_code>
+               <zip_code xsi:type="xsd:string">?</zip_code>
+               <address_line_1 xsi:type="xsd:string">?</address_line_1>
+               <address_line_2 xsi:type="xsd:string">?</address_line_2>
+               <address_line_3 xsi:type="xsd:string">?</address_line_3>
+               <city_name xsi:type="xsd:string">?</city_name>
+            </payer_address_info>
+            <gateway xsi:type="xsd:string">?</gateway>
+            <aba_number xsi:type="xsd:string">?</aba_number>
+            <payer_id xsi:type="xsd:string">?</payer_id>
+            <reason_code_set_name xsi:type="xsd:string">?</reason_code_set_name>
+            <dda_number xsi:type="xsd:string">?</dda_number>
+            <original_gateway xsi:type="xsd:string">?</original_gateway>
+            <footnote_payer_indicator xsi:type="xsd:boolean">?</footnote_payer_indicator>
+            <original_payer_id xsi:type="xsd:string">?</original_payer_id>
+         </mapping>
+      </urn:UpdateEdcPayerMapping>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="/payer_mapping_service/api/UpdateEdcPayerMapping"/></con:call></con:operation><con:operation isOneWay="false" action="/payer_mapping_service/api/UpdateEftPayerMapping" name="UpdateEftPayerMapping" bindingOperationName="UpdateEftPayerMapping" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.0.127.139/payer_mapping_service/api</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:ActionWebService">
    <soapenv:Header/>
    <soapenv:Body>
       <urn:UpdateEftPayerMapping soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
@@ -182,7 +210,23 @@
          </mapping>
       </urn:UpdateEftPayerMapping>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="/payer_mapping_service/api/UpdateEftPayerMapping"/></con:call></con:operation><con:operation isOneWay="false" action="/payer_mapping_service/api/UpdateEraPayerDetails" name="UpdateEraPayerDetails" bindingOperationName="UpdateEraPayerDetails" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:3000/payer_mapping_service/api</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:ActionWebService">
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="/payer_mapping_service/api/UpdateEftPayerMapping"/></con:call><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:3000/payer_mapping_service/api</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:ActionWebService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:UpdateEftPayerMapping soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <key xsi:type="xsd:string">?</key>
+         <mapping xsi:type="urn:PayerMappingEftDto">
+            <!--You may enter the following 6 items in any order-->
+            <payer_name xsi:type="xsd:string">?</payer_name>
+            <gateway xsi:type="xsd:string">?</gateway>
+            <payer_id xsi:type="xsd:string">?</payer_id>
+            <original_gateway xsi:type="xsd:string">?</original_gateway>
+            <company_id xsi:type="xsd:string">?</company_id>
+            <original_payer_id xsi:type="xsd:string">?</original_payer_id>
+         </mapping>
+      </urn:UpdateEftPayerMapping>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="/payer_mapping_service/api/UpdateEftPayerMapping"/></con:call></con:operation><con:operation isOneWay="false" action="/payer_mapping_service/api/UpdateEraPayerDetails" name="UpdateEraPayerDetails" bindingOperationName="UpdateEraPayerDetails" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.0.127.139/payer_mapping_service/api</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:ActionWebService">
    <soapenv:Header/>
    <soapenv:Body>
       <urn:UpdateEraPayerDetails soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
@@ -214,4 +258,270 @@
          </mapping>
       </urn:UpdateEraPayerDetails>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="/payer_mapping_service/api/UpdateEraPayerDetails"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="/payer_mapping_service/api/UpdateEraPayerDetails"/></con:call><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:3000/payer_mapping_service/api</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:ActionWebService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:UpdateEraPayerDetails soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <key xsi:type="xsd:string">?</key>
+         <mapping xsi:type="urn:EraPayerDto">
+            <!--You may enter the following 14 items in any order-->
+            <status xsi:type="xsd:string">?</status>
+            <retriever_id xsi:type="xsd:string">?</retriever_id>
+            <payer_address_info xsi:type="urn:PayerAddressDTO">
+               <!--You may enter the following 6 items in any order-->
+               <state_code xsi:type="xsd:string">?</state_code>
+               <zip_code xsi:type="xsd:string">?</zip_code>
+               <address_line_1 xsi:type="xsd:string">?</address_line_1>
+               <address_line_2 xsi:type="xsd:string">?</address_line_2>
+               <address_line_3 xsi:type="xsd:string">?</address_line_3>
+               <city_name xsi:type="xsd:string">?</city_name>
+            </payer_address_info>
+            <payer_name xsi:type="xsd:string">?</payer_name>
+            <administrator_owner xsi:type="xsd:string">?</administrator_owner>
+            <submitter_id xsi:type="xsd:string">?</submitter_id>
+            <ability_to_split_by_npi xsi:type="xsd:boolean">?</ability_to_split_by_npi>
+            <payer_id xsi:type="xsd:string">?</payer_id>
+            <gateway xsi:type="xsd:string">?</gateway>
+            <id3 xsi:type="xsd:string">?</id3>
+            <payer_lob xsi:type="xsd:string">?</payer_lob>
+            <original_gateway xsi:type="xsd:string">?</original_gateway>
+            <original_payer_id xsi:type="xsd:string">?</original_payer_id>
+            <payer_model xsi:type="xsd:string">?</payer_model>
+         </mapping>
+      </urn:UpdateEraPayerDetails>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="/payer_mapping_service/api/UpdateEraPayerDetails"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="ReasonCodeServiceBinding" type="wsdl" bindingName="{urn:ActionWebService}ReasonCodeServiceBinding" soapVersion="1_1" anonymous="optional" definition="http://10.0.127.139/reason_code_service/wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://10.0.127.139/reason_code_service/wsdl"><con:part><con:url>http://10.0.127.139/reason_code_service/wsdl</con:url><con:content><![CDATA[<definitions name="" targetNamespace="urn:ActionWebService" xmlns:typens="urn:ActionWebService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema targetNamespace="urn:ActionWebService" xmlns="http://www.w3.org/2001/XMLSchema">
+      <xsd:complexType name="CrosswalkItem">
+        <xsd:all>
+          <xsd:element name="denied_ansi_code" type="xsd:string"/>
+          <xsd:element name="reporting_activity_code2" type="xsd:string"/>
+          <xsd:element name="denied_claim_status_code" type="xsd:string"/>
+          <xsd:element name="active" type="xsd:boolean"/>
+          <xsd:element name="ansi_code" type="xsd:string"/>
+          <xsd:element name="denied_client_system_code" type="xsd:string"/>
+          <xsd:element name="group_code" type="xsd:string"/>
+          <xsd:element name="claim_status_code" type="xsd:string"/>
+          <xsd:element name="site_number" type="xsd:string"/>
+          <xsd:element name="id" type="xsd:int"/>
+          <xsd:element name="client_system_code" type="xsd:string"/>
+          <xsd:element name="reporting_activity_code" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ReasonCodeItem">
+        <xsd:all>
+          <xsd:element name="description" type="xsd:string"/>
+          <xsd:element name="crosswalk_items" type="typens:CrosswalkItemArray"/>
+          <xsd:element name="reason_code" type="xsd:string"/>
+          <xsd:element name="learn_date" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="AnsiCodeItemArray">
+        <xsd:complexContent>
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute ref="soapenc:arrayType" wsdl:arrayType="typens:AnsiCodeItem[]"/>
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ReasonCodeParameter">
+        <xsd:all>
+          <xsd:element name="legacy_code_set_name" type="xsd:string"/>
+          <xsd:element name="data" type="typens:ReasonCodeItemArray"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="AnsiCodeResponse">
+        <xsd:all>
+          <xsd:element name="results" type="typens:AnsiCodeItemResultArray"/>
+          <xsd:element name="success" type="xsd:boolean"/>
+          <xsd:element name="error" type="typens:Error"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ReasonCodeItemArray">
+        <xsd:complexContent>
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute ref="soapenc:arrayType" wsdl:arrayType="typens:ReasonCodeItem[]"/>
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="CrosswalkItemResultArray">
+        <xsd:complexContent>
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute ref="soapenc:arrayType" wsdl:arrayType="typens:CrosswalkItemResult[]"/>
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ReasonCodeResponse">
+        <xsd:all>
+          <xsd:element name="walk_results" type="typens:CrosswalkItemResultArray"/>
+          <xsd:element name="error" type="typens:Error"/>
+          <xsd:element name="success" type="xsd:boolean"/>
+          <xsd:element name="reason_code" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="FootnoteResponse">
+        <xsd:all>
+          <xsd:element name="success" type="xsd:boolean"/>
+          <xsd:element name="error" type="typens:Error"/>
+          <xsd:element name="footnote" type="typens:FootnoteCodeDto"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="Error">
+        <xsd:all>
+          <xsd:element name="message" type="xsd:string"/>
+          <xsd:element name="error_code" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="FootnoteCodeDto">
+        <xsd:all>
+          <xsd:element name="description" type="xsd:string"/>
+          <xsd:element name="code" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="AnsiCodeItemResultArray">
+        <xsd:complexContent>
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute ref="soapenc:arrayType" wsdl:arrayType="typens:AnsiCodeItemResult[]"/>
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="AnsiCodeItem">
+        <xsd:all>
+          <xsd:element name="description" type="xsd:string"/>
+          <xsd:element name="action" type="xsd:string"/>
+          <xsd:element name="ansi_code" type="xsd:string"/>
+          <xsd:element name="id" type="xsd:int"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="CrosswalkItemResult">
+        <xsd:all>
+          <xsd:element name="source_id" type="xsd:string"/>
+          <xsd:element name="error_message" type="xsd:string"/>
+          <xsd:element name="success" type="xsd:boolean"/>
+          <xsd:element name="error_code" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="AnsiCodeItemResult">
+        <xsd:all>
+          <xsd:element name="source_id" type="xsd:string"/>
+          <xsd:element name="error_message" type="xsd:string"/>
+          <xsd:element name="success" type="xsd:boolean"/>
+          <xsd:element name="error_code" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="CrosswalkItemArray">
+        <xsd:complexContent>
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute ref="soapenc:arrayType" wsdl:arrayType="typens:CrosswalkItem[]"/>
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="AnsiCodeUpdate">
+    <part name="key" type="xsd:string"/>
+    <part name="items" type="typens:AnsiCodeItemArray"/>
+  </message>
+  <message name="AnsiCodeUpdateResponse">
+    <part name="return" type="typens:AnsiCodeResponse"/>
+  </message>
+  <message name="ReasonCodeUpdate">
+    <part name="key" type="xsd:string"/>
+    <part name="parameter" type="typens:ReasonCodeParameter"/>
+  </message>
+  <message name="ReasonCodeUpdateResponse">
+    <part name="return" type="typens:ReasonCodeResponse"/>
+  </message>
+  <message name="FootnoteCodeLookup">
+    <part name="key" type="xsd:string"/>
+    <part name="description" type="xsd:string"/>
+    <part name="payer_id" type="xsd:string"/>
+    <part name="gateway" type="xsd:string"/>
+    <part name="original_payer" type="xsd:string"/>
+    <part name="original_gateway" type="xsd:string"/>
+  </message>
+  <message name="FootnoteCodeLookupResponse">
+    <part name="return" type="typens:FootnoteResponse"/>
+  </message>
+  <portType name="ReasonCodeServicePort">
+    <operation name="AnsiCodeUpdate">
+      <input message="typens:AnsiCodeUpdate"/>
+      <output message="typens:AnsiCodeUpdateResponse"/>
+    </operation>
+    <operation name="ReasonCodeUpdate">
+      <input message="typens:ReasonCodeUpdate"/>
+      <output message="typens:ReasonCodeUpdateResponse"/>
+    </operation>
+    <operation name="FootnoteCodeLookup">
+      <input message="typens:FootnoteCodeLookup"/>
+      <output message="typens:FootnoteCodeLookupResponse"/>
+    </operation>
+  </portType>
+  <binding name="ReasonCodeServiceBinding" type="typens:ReasonCodeServicePort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"/>
+    <operation name="AnsiCodeUpdate">
+      <soap:operation soapAction="/reason_code_service/api/AnsiCodeUpdate"/>
+      <input>
+        <soap:body namespace="urn:ActionWebService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:ActionWebService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="ReasonCodeUpdate">
+      <soap:operation soapAction="/reason_code_service/api/ReasonCodeUpdate"/>
+      <input>
+        <soap:body namespace="urn:ActionWebService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:ActionWebService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="FootnoteCodeLookup">
+      <soap:operation soapAction="/reason_code_service/api/FootnoteCodeLookup"/>
+      <input>
+        <soap:body namespace="urn:ActionWebService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:ActionWebService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="Service">
+    <port name="ReasonCodeServicePort" binding="typens:ReasonCodeServiceBinding">
+      <soap:address location="http://10.0.127.139/reason_code_service/api"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://10.0.127.139/reason_code_service/api</con:endpoint></con:endpoints><con:operation isOneWay="false" action="/reason_code_service/api/AnsiCodeUpdate" name="AnsiCodeUpdate" bindingOperationName="AnsiCodeUpdate" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.0.127.139/reason_code_service/api</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:ActionWebService" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:AnsiCodeUpdate soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <key xsi:type="xsd:string">?</key>
+         <items xsi:type="urn:AnsiCodeItemArray" soapenc:arrayType="urn:AnsiCodeItem[]"/>
+      </urn:AnsiCodeUpdate>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="/reason_code_service/api/AnsiCodeUpdate"/></con:call></con:operation><con:operation isOneWay="false" action="/reason_code_service/api/FootnoteCodeLookup" name="FootnoteCodeLookup" bindingOperationName="FootnoteCodeLookup" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.0.127.139/reason_code_service/api</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:ActionWebService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:FootnoteCodeLookup soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <key xsi:type="xsd:string">test</key>
+         <description xsi:type="xsd:string">help</description>
+         <payer_id xsi:type="xsd:string">1</payer_id>
+         <gateway xsi:type="xsd:string">1</gateway>
+         <original_payer xsi:type="xsd:string">1</original_payer>
+         <original_gateway xsi:type="xsd:string">1</original_gateway>
+      </urn:FootnoteCodeLookup>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="/reason_code_service/api/FootnoteCodeLookup"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="/reason_code_service/api/ReasonCodeUpdate" name="ReasonCodeUpdate" bindingOperationName="ReasonCodeUpdate" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.0.127.139/reason_code_service/api</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:ActionWebService" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:ReasonCodeUpdate soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <key xsi:type="xsd:string">?</key>
+         <parameter xsi:type="urn:ReasonCodeParameter">
+            <!--You may enter the following 2 items in any order-->
+            <legacy_code_set_name xsi:type="xsd:string">?</legacy_code_set_name>
+            <data xsi:type="urn:ReasonCodeItemArray" soapenc:arrayType="urn:ReasonCodeItem[]"/>
+         </parameter>
+      </urn:ReasonCodeUpdate>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="/reason_code_service/api/ReasonCodeUpdate"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>

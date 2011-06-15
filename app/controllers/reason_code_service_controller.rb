@@ -9,6 +9,9 @@ class ReasonCodeServiceController < ActionController::Base
   end
   
   def footnote_code_lookup(key, description, payer_id, gateway, original_payer, original_gateway)
+    rsp = FootnoteResponse.new
+    rsp.success = true
+    rsp
   end
   
 end
