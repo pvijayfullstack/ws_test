@@ -1,0 +1,91 @@
+# http://www.devdaily.com/blog/post/ruby/read-web-service-ruby-client
+
+# require 'soap/wsdlDriver'
+
+# WSDL_URL = "http://localhost:8080/axis2/services/UserService?wsdl"
+# factory = SOAP::WSDLDriverFactory.new(WSDL_URL)
+# driver = factory.create_rpc_driver
+
+# Soap Driver property protocol.http.proxy
+# or driver.httpproxy = HTTP_PROXY=http://PROXY_USERNAME:PROXY_PASSW...@proxy.server.com:80
+# ActionWebService::Client::Soap.new(PersonAPI, "http://...")
+module Revservice
+
+  class Base
+    attr_accessor :url, :key, :method_name, :params
+    attr_reader :src_system_code, :results, :pref
+  
+    
+    def initialize(api)
+      @threads = []
+      @resutls = {}
+      @api = api
+      @src_system_code = "RM"
+      file_name = "#{RAILS_ROOT}/config/webservices.yml"
+      @env = ENV['RAILS_ENV']
+      if File.exists? file_name
+        @pref = YAML.load_file(file_name)
+        
+      else
+        raise "Cannot find config/webservices.yml to Load"
+      end
+      unless @pref.has_key? @env
+        raise "No webservice config for #{@env}"      
+      end
+      
+      @url = @pref[@env][@api.api_key]
+    end
+    
+    # start the thread and call the webservice
+    def call m_name, p_name
+      @method_name = m_name
+      @params = p_name
+      finished = false
+      attempt_count = 0
+      client = ActionWebService::Client::Soap.new(@api, @url, :proxy => build_proxy_url)      
+      @params.insert(0, @key)
+      @params.insert(1, @src_system_code)
+      while not finished
+        begin
+          attempt_count += 1
+          if attempt_count > 3
+            raise "Cannot communicate with server"
+          end
+          @results = client.send(@method_name.to_sym, @params)
+          if @results
+            finished = true
+          end
+        rescue Exception
+          sleep 10
+          raise 
+        end
+      end
+      @results
+    end
+    
+    private 
+    def build_proxy_url
+      user_name = @pref[@env]['proxy_user']
+      host = @pref[@env]['proxy_host']
+      port = @pref[@env]['proxy_port']
+      password = @pref[@env]['proxy_password']
+      protocol = @pref[@env]['proxy_protocol']
+      # http://PROXY_USERNAME:PROXY_PASSW...@proxy.server.com:80
+      if host.blank? or protocol.blank?
+        raise Exception "Proxy Requires protocol and host"
+      end
+      proxy = ""
+      proxy += "#{protocol}://"
+      proxy += "#{user_name}" unless user_name.blank?
+      proxy += ":#{password}" unless password.blank?
+      proxy += "@" unless user_name.blank?
+      proxy += "#{host}"
+      proxy += ":#{port}"unless port.blank?
+      proxy
+      
+    end
+    
+  
+  end
+
+end
