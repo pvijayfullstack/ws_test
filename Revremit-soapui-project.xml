@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="Revremit" resourceRoot="" soapui-version="4.0.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="PayerMappingServiceBinding" type="wsdl" bindingName="{urn:ActionWebService}PayerMappingServiceBinding" soapVersion="1_1" anonymous="optional" definition="file:/Users/adavis/Desktop/payer_mapping.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/Users/adavis/Desktop/payer_mapping.wsdl"><con:part><con:url>file:/Users/adavis/Desktop/payer_mapping.wsdl</con:url><con:content><![CDATA[<definitions name="" targetNamespace="urn:ActionWebService" xmlns:typens="urn:ActionWebService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema targetNamespace="urn:ActionWebService" xmlns="http://www.w3.org/2001/XMLSchema">
+      <xsd:complexType name="Response">
+        <xsd:all>
+          <xsd:element name="error" type="typens:Error"/>
+          <xsd:element name="success" type="xsd:boolean"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="PayerMappingEftDto">
+        <xsd:all>
+          <xsd:element name="payer_name" type="xsd:string"/>
+          <xsd:element name="gateway" type="xsd:string"/>
+          <xsd:element name="payer_id" type="xsd:string"/>
+          <xsd:element name="original_gateway" type="xsd:string"/>
+          <xsd:element name="company_id" type="xsd:string"/>
+          <xsd:element name="original_payer_id" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="EraPayerDto">
+        <xsd:all>
+          <xsd:element name="status" type="xsd:string"/>
+          <xsd:element name="retriever_id" type="xsd:string"/>
+          <xsd:element name="payer_address_info" type="typens:PayerAddressDTO"/>
+          <xsd:element name="payer_name" type="xsd:string"/>
+          <xsd:element name="administrator_owner" type="xsd:string"/>
+          <xsd:element name="submitter_id" type="xsd:string"/>
+          <xsd:element name="ability_to_split_by_npi" type="xsd:boolean"/>
+          <xsd:element name="payer_id" type="xsd:string"/>
+          <xsd:element name="gateway" type="xsd:string"/>
+          <xsd:element name="id3" type="xsd:string"/>
+          <xsd:element name="payer_lob" type="xsd:string"/>
+          <xsd:element name="original_gateway" type="xsd:string"/>
+          <xsd:element name="original_payer_id" type="xsd:string"/>
+          <xsd:element name="payer_model" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="Error">
+        <xsd:all>
+          <xsd:element name="error_code" type="xsd:string"/>
+          <xsd:element name="message" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="PayerMappingEdcDto">
+        <xsd:all>
+          <xsd:element name="payer_name" type="xsd:string"/>
+          <xsd:element name="payer_address_info" type="typens:PayerAddressDTO"/>
+          <xsd:element name="gateway" type="xsd:string"/>
+          <xsd:element name="aba_number" type="xsd:string"/>
+          <xsd:element name="payer_id" type="xsd:string"/>
+          <xsd:element name="reason_code_set_name" type="xsd:string"/>
+          <xsd:element name="dda_number" type="xsd:string"/>
+          <xsd:element name="original_gateway" type="xsd:string"/>
+          <xsd:element name="footnote_payer_indicator" type="xsd:boolean"/>
+          <xsd:element name="original_payer_id" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="PayerAddressDTO">
+        <xsd:all>
+          <xsd:element name="state_code" type="xsd:string"/>
+          <xsd:element name="zip_code" type="xsd:string"/>
+          <xsd:element name="address_line_1" type="xsd:string"/>
+          <xsd:element name="address_line_2" type="xsd:string"/>
+          <xsd:element name="address_line_3" type="xsd:string"/>
+          <xsd:element name="city_name" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="UpdateEdcPayerMapping">
+    <part name="key" type="xsd:string"/>
+    <part name="mapping" type="typens:PayerMappingEdcDto"/>
+  </message>
+  <message name="UpdateEdcPayerMappingResponse">
+    <part name="return" type="typens:Response"/>
+  </message>
+  <message name="UpdateEftPayerMapping">
+    <part name="key" type="xsd:string"/>
+    <part name="mapping" type="typens:PayerMappingEftDto"/>
+  </message>
+  <message name="UpdateEftPayerMappingResponse">
+    <part name="return" type="typens:Response"/>
+  </message>
+  <message name="UpdateEraPayerDetails">
+    <part name="key" type="xsd:string"/>
+    <part name="mapping" type="typens:EraPayerDto"/>
+  </message>
+  <message name="UpdateEraPayerDetailsResponse">
+    <part name="return" type="typens:Response"/>
+  </message>
+  <portType name="PayerMappingServicePort">
+    <operation name="UpdateEdcPayerMapping">
+      <input message="typens:UpdateEdcPayerMapping"/>
+      <output message="typens:UpdateEdcPayerMappingResponse"/>
+    </operation>
+    <operation name="UpdateEftPayerMapping">
+      <input message="typens:UpdateEftPayerMapping"/>
+      <output message="typens:UpdateEftPayerMappingResponse"/>
+    </operation>
+    <operation name="UpdateEraPayerDetails">
+      <input message="typens:UpdateEraPayerDetails"/>
+      <output message="typens:UpdateEraPayerDetailsResponse"/>
+    </operation>
+  </portType>
+  <binding name="PayerMappingServiceBinding" type="typens:PayerMappingServicePort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"/>
+    <operation name="UpdateEdcPayerMapping">
+      <soap:operation soapAction="/payer_mapping_service/api/UpdateEdcPayerMapping"/>
+      <input>
+        <soap:body namespace="urn:ActionWebService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:ActionWebService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="UpdateEftPayerMapping">
+      <soap:operation soapAction="/payer_mapping_service/api/UpdateEftPayerMapping"/>
+      <input>
+        <soap:body namespace="urn:ActionWebService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:ActionWebService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="UpdateEraPayerDetails">
+      <soap:operation soapAction="/payer_mapping_service/api/UpdateEraPayerDetails"/>
+      <input>
+        <soap:body namespace="urn:ActionWebService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:ActionWebService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="Service">
+    <port name="PayerMappingServicePort" binding="typens:PayerMappingServiceBinding">
+      <soap:address location="http://localhost:3000/payer_mapping_service/api"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:3000/payer_mapping_service/api</con:endpoint></con:endpoints><con:operation isOneWay="false" action="/payer_mapping_service/api/UpdateEdcPayerMapping" name="UpdateEdcPayerMapping" bindingOperationName="UpdateEdcPayerMapping" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:3000/payer_mapping_service/api</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:ActionWebService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:UpdateEdcPayerMapping soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <key xsi:type="xsd:string">Ncc-1701d</key>
+         <mapping xsi:type="urn:PayerMappingEdcDto">
+            <!--You may enter the following 10 items in any order-->
+            <payer_name xsi:type="xsd:string">Allan Davis</payer_name>
+            <payer_address_info xsi:type="urn:PayerAddressDTO">
+               <!--You may enter the following 6 items in any order-->
+               <state_code xsi:type="xsd:string">GA</state_code>
+               <zip_code xsi:type="xsd:string">30030</zip_code>
+               <address_line_1 xsi:type="xsd:string">258 Forkner Dr</address_line_1>
+               <address_line_2 xsi:type="xsd:string">?</address_line_2>
+               <address_line_3 xsi:type="xsd:string">?</address_line_3>
+               <city_name xsi:type="xsd:string">Decatur</city_name>
+            </payer_address_info>
+            <gateway xsi:type="xsd:string">gway</gateway>
+            <aba_number xsi:type="xsd:string">0000001</aba_number>
+            <payer_id xsi:type="xsd:string">1</payer_id>
+            <reason_code_set_name xsi:type="xsd:string">alpha</reason_code_set_name>
+            <dda_number xsi:type="xsd:string">999999</dda_number>
+            <original_gateway xsi:type="xsd:string">gway</original_gateway>
+            <footnote_payer_indicator xsi:type="xsd:boolean">0</footnote_payer_indicator>
+            <original_payer_id xsi:type="xsd:string">1</original_payer_id>
+         </mapping>
+      </urn:UpdateEdcPayerMapping>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="/payer_mapping_service/api/UpdateEdcPayerMapping"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="/payer_mapping_service/api/UpdateEftPayerMapping" name="UpdateEftPayerMapping" bindingOperationName="UpdateEftPayerMapping" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:3000/payer_mapping_service/api</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:ActionWebService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:UpdateEftPayerMapping soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <key xsi:type="xsd:string">?</key>
+         <mapping xsi:type="urn:PayerMappingEftDto">
+            <!--You may enter the following 6 items in any order-->
+            <payer_name xsi:type="xsd:string">?</payer_name>
+            <gateway xsi:type="xsd:string">?</gateway>
+            <payer_id xsi:type="xsd:string">?</payer_id>
+            <original_gateway xsi:type="xsd:string">?</original_gateway>
+            <company_id xsi:type="xsd:string">?</company_id>
+            <original_payer_id xsi:type="xsd:string">?</original_payer_id>
+         </mapping>
+      </urn:UpdateEftPayerMapping>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="/payer_mapping_service/api/UpdateEftPayerMapping"/></con:call></con:operation><con:operation isOneWay="false" action="/payer_mapping_service/api/UpdateEraPayerDetails" name="UpdateEraPayerDetails" bindingOperationName="UpdateEraPayerDetails" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:3000/payer_mapping_service/api</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:ActionWebService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:UpdateEraPayerDetails soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <key xsi:type="xsd:string">?</key>
+         <mapping xsi:type="urn:EraPayerDto">
+            <!--You may enter the following 14 items in any order-->
+            <status xsi:type="xsd:string">?</status>
+            <retriever_id xsi:type="xsd:string">?</retriever_id>
+            <payer_address_info xsi:type="urn:PayerAddressDTO">
+               <!--You may enter the following 6 items in any order-->
+               <state_code xsi:type="xsd:string">?</state_code>
+               <zip_code xsi:type="xsd:string">?</zip_code>
+               <address_line_1 xsi:type="xsd:string">?</address_line_1>
+               <address_line_2 xsi:type="xsd:string">?</address_line_2>
+               <address_line_3 xsi:type="xsd:string">?</address_line_3>
+               <city_name xsi:type="xsd:string">?</city_name>
+            </payer_address_info>
+            <payer_name xsi:type="xsd:string">?</payer_name>
+            <administrator_owner xsi:type="xsd:string">?</administrator_owner>
+            <submitter_id xsi:type="xsd:string">?</submitter_id>
+            <ability_to_split_by_npi xsi:type="xsd:boolean">?</ability_to_split_by_npi>
+            <payer_id xsi:type="xsd:string">?</payer_id>
+            <gateway xsi:type="xsd:string">?</gateway>
+            <id3 xsi:type="xsd:string">?</id3>
+            <payer_lob xsi:type="xsd:string">?</payer_lob>
+            <original_gateway xsi:type="xsd:string">?</original_gateway>
+            <original_payer_id xsi:type="xsd:string">?</original_payer_id>
+            <payer_model xsi:type="xsd:string">?</payer_model>
+         </mapping>
+      </urn:UpdateEraPayerDetails>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="/payer_mapping_service/api/UpdateEraPayerDetails"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>
