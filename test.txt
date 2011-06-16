@@ -9,3 +9,5 @@ mv ruby-enterprise-1.8.6-20090610/ ruby_ee_1.8.6
 ssh -f -L 8080:171.156.66.181:8080 vm10 -N
 
 curl --proxy 127.0.0.1:8080 -U nbsyuyg:br549nbs https://dev-hlsc.bankofamerica.com/HealthLogicServices/services/SampleWebService?wsdl
+
+soap::netHttpClient.rb line 129
