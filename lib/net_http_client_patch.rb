@@ -4,7 +4,19 @@ require 'net/http'
 module SOAP
 
 
-class NetHttpClient  
+class NetHttpClient
+  
+  def start(url)
+    http = create_connection(url)
+    response = nil
+    http.start { |worker|
+      response = yield(worker)
+      worker.finish
+    }
+    @debug_dev << response.body if @debug_dev
+    response
+  end
+  
   def create_connection(url)
     proxy_host = proxy_port = nil
     proxy_user = proxy_pass = nil
