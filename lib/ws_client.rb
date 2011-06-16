@@ -5,8 +5,8 @@
   def build_proxy_url
       user_name = "nbsyuyg"
       password = "br549nbs"
-      #host = "171.156.66.181"
-      host = "127.0.0.1"
+      host = "171.156.66.181"
+      #host = "127.0.0.1"
       port = "8080"
       
       protocol = "http"
