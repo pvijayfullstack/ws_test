@@ -1,5 +1,5 @@
 module Revservice
-  class PayerEncounterHelper < WebserviceHelper
+  class PayerEncounterHelper < Base
     
     # This is a temporary code which needs to be replaced with original code of WS later. Now to simulate, we return static values.
     def self.get_edc_payer(aba_number, dda_number, payer_name, footnote_payer, payer_address)
