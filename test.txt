@@ -11,3 +11,6 @@ ssh -f -L 8080:171.156.66.181:8080 vm10 -N
 curl --proxy 127.0.0.1:8080 -U nbsyuyg:br549nbs https://dev-hlsc.bankofamerica.com/HealthLogicServices/services/SampleWebService?wsdl
 
 soap::netHttpClient.rb line 129
+
+
+Revservice::PayerEncounterHelper.get_edc_payer("000001", "1111111", "Allan Davis", false, PayerMappingService::PayerAddressDTO.new(:city_name => "decatur", :state_code => "GA", :zip_code => "30030", :address_line_1 =>"123 Main St."))

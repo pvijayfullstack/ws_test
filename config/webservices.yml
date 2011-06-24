@@ -1,0 +1,17 @@
+development:
+  encounter_url: "http://localhost:3001/payer_encounter_service/api
+  file_merge_url: ""
+  #proxy_host: "127.0.0.1"
+  #proxy_port: "8080"
+  #proxy_user: "nbsyuyg"
+  #proxy_password: "br549nbs"
+  #proxy_protocol: "http"
+
+production:
+  encounter_url: "https://dev-hlsc.bankofamerica.com/HealthLogicServices/WebServices/PayerEncounterService"
+  file_merge_url: ""
+  proxy_host: "127.0.0.1"
+  proxy_port: "8080"
+  proxy_user: "nbsyuyg"
+  proxy_password: "br549nbs"
+  proxy_protocol: "http"
