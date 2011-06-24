@@ -3,9 +3,12 @@ class PayerMappingServiceController < ApplicationController
   #wsdl_service_name 'PayerMapping'
 
   def update_edc_payer_mapping(key, mapping)
-    rsp = WebService::Response.new
-    rsp.success = true
-    rsp
+    unless key == "NCC1701D"
+    else
+      res = WebService::Response.new :success => false,
+        :error => WebService::Error.new(:error_code =>"-1", :message => "key not valid")
+    end
+    return res
   end
   
   def update_eft_payer_mapping(key, mapping)
