@@ -4,13 +4,9 @@ module Revservice
     # This is a temporary code which needs to be replaced with original code of WS later. Now to simulate, we return static values.
     def self.get_edc_payer(aba_number, dda_number, payer_name, footnote_payer, payer_address)
       encounter = PayerEncounterHelper.new PayerEncounterApi
-      params = []
-      params << aba_number
-      params << dda_number
-      params << payer_name
-      params << footnote_payer
-      params << payer_address
-      encounter.call "get_edc_payer", params
+      encounter.key = "ncc1701d"
+      
+      encounter.call "getEDCPayer", aba_number, dda_number, payer_name, footnote_payer, payer_address
     end
     
     def self.get_eft_payer(company_id, payer_name)

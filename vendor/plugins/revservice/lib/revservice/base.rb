@@ -9,6 +9,10 @@
 # Soap Driver property protocol.http.proxy
 # or driver.httpproxy = HTTP_PROXY=http://PROXY_USERNAME:PROXY_PASSW...@proxy.server.com:80
 # ActionWebService::Client::Soap.new(PersonAPI, "http://...")
+
+require 'net_http_client_patch'
+require 'xmlrpc_client_patch'
+require 'net/http'
 module Revservice
 
   class Base
@@ -37,24 +41,36 @@ module Revservice
     end
     
     # start the thread and call the webservice
-    def call m_name, p_name
+    def call(m_name, *args) 
       @method_name = m_name
-      @params = p_name
+      @params = args
       finished = false
       attempt_count = 0
-      client = ActionWebService::Client::Soap.new(@api, @url, :proxy => build_proxy_url)      
-      @params.insert(0, @key)
-      @params.insert(1, @src_system_code)
+      proxy_url = build_proxy_url
+      puts "Service URL\n\t#{@url}"
+      puts "Proxy URL:\n\t#{proxy_url}"
+      puts "\n\n"
+      opts = {}
+      #opts["protocol.http.basic_auth"] = [service_url, user_name, password]
+      opts['protocol.http.proxy'] = proxy_url
+      
+      client = ActionWebService::Client::XmlRpc.new(@api, @url, :proxy => proxy_url)      
+      args.insert(0, @key)
+      args.insert(1, @src_system_code)
       while not finished
         begin
           attempt_count += 1
           if attempt_count > 3
             raise "Cannot communicate with server"
           end
-          @results = client.send(@method_name.to_sym, @params)
+          @results = client.send(@method_name.to_sym, *args)
           if @results
             finished = true
           end
+        rescue Net::HTTPError => e
+          puts e.response
+          sleep 10
+          raise 
         rescue Exception
           sleep 10
           raise 
