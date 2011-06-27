@@ -12,6 +12,8 @@ module SOAP
       res = start(url) { |http|
         http.post(url.request_uri, req_body, extra)
       }
+      puts req_body
+      puts res
       Response.new(res)
     end
     

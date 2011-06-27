@@ -54,7 +54,8 @@ module Revservice
       #opts["protocol.http.basic_auth"] = [service_url, user_name, password]
       opts['protocol.http.proxy'] = proxy_url
       
-      client = ActionWebService::Client::XmlRpc.new(@api, @url, :proxy => proxy_url)      
+      #client = ActionWebService::Client::XmlRpc.new(@api, @url, :proxy => proxy_url)
+      client = ActionWebService::Client::Soap.new(@api, @url, :driver_options => opts) 
       args.insert(0, @key)
       args.insert(1, @src_system_code)
       while not finished

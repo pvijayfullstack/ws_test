@@ -524,7 +524,7 @@
          </parameter>
       </urn:ReasonCodeUpdate>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="/reason_code_service/api/ReasonCodeUpdate"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="PayerEncounterServiceSoapBinding" type="wsdl" bindingName="{https://dev-hlsc.bankofamerica.com/HealthLogicServices/WebServices/PayerEncounterService}PayerEncounterServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="https://dev-hlsc.bankofamerica.com/HealthLogicServices/WebServices/PayerEncounterService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://dev-hlsc.bankofamerica.com/HealthLogicServices/WebServices/PayerEncounterService?wsdl"><con:part><con:url>https://dev-hlsc.bankofamerica.com/HealthLogicServices/WebServices/PayerEncounterService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="https://dev-hlsc.bankofamerica.com/HealthLogicServices/WebServices/PayerEncounterService" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="https://dev-hlsc.bankofamerica.com/HealthLogicServices/WebServices/PayerEncounterService" xmlns:intf="https://dev-hlsc.bankofamerica.com/HealthLogicServices/WebServices/PayerEncounterService" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns1="http://dto.webservice.healthlogic.boa.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="/reason_code_service/api/ReasonCodeUpdate"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="PayerEncounterServiceSoapBinding" type="wsdl" bindingName="{https://dev-hlsc.bankofamerica.com/HealthLogicServices/WebServices/PayerEncounterService}PayerEncounterServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="https://dev-hlsc.bankofamerica.com/HealthLogicServices/WebServices/PayerEncounterService?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://dev-hlsc.bankofamerica.com/HealthLogicServices/WebServices/PayerEncounterService?WSDL"><con:part><con:url>https://dev-hlsc.bankofamerica.com/HealthLogicServices/WebServices/PayerEncounterService?WSDL</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="https://dev-hlsc.bankofamerica.com/HealthLogicServices/WebServices/PayerEncounterService" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="https://dev-hlsc.bankofamerica.com/HealthLogicServices/WebServices/PayerEncounterService" xmlns:intf="https://dev-hlsc.bankofamerica.com/HealthLogicServices/WebServices/PayerEncounterService" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns1="http://dto.webservice.healthlogic.boa.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <!--WSDL created by Apache Axis version: 1.4
 Built on Apr 22, 2006 (06:55:48 PDT)-->
   <wsdl:types>
@@ -577,11 +577,12 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
     <wsdl:part name="sourceSystemCode" type="soapenc:string"/>
     <wsdl:part name="abaNumber" type="soapenc:string"/>
     <wsdl:part name="ddaNumber" type="soapenc:string"/>
+    <wsdl:part name="footNoteBasedInd" type="soapenc:boolean"/>
     <wsdl:part name="payerName" type="soapenc:string"/>
     <wsdl:part name="payerAddress" type="tns1:PayerAddressDTO"/>
   </wsdl:message>
   <wsdl:portType name="PayerEncounterServiceEndPoint">
-    <wsdl:operation name="getEDCPayer" parameterOrder="authorizationKey sourceSystemCode abaNumber ddaNumber payerName payerAddress">
+    <wsdl:operation name="getEDCPayer" parameterOrder="authorizationKey sourceSystemCode abaNumber ddaNumber footNoteBasedInd payerName payerAddress">
       <wsdl:input message="impl:getEDCPayerRequest" name="getEDCPayerRequest"/>
       <wsdl:output message="impl:getEDCPayerResponse" name="getEDCPayerResponse"/>
     </wsdl:operation>
@@ -620,23 +621,48 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <soapenv:Header/>
    <soapenv:Body>
       <ser:getEDCPayer soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-         <authorizationKey xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">?</authorizationKey>
-         <sourceSystemCode xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">?</sourceSystemCode>
-         <abaNumber xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">?</abaNumber>
-         <ddaNumber xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">?</ddaNumber>
-         <payerName xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">?</payerName>
+         <authorizationKey xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">AP-WEBSERVICE-V01.00</authorizationKey>
+         <sourceSystemCode xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">RM</sourceSystemCode>
+         <abaNumber xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">000001</abaNumber>
+         <ddaNumber xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">1111111</ddaNumber>
+         <footNoteBasedInd xsi:type="soapenc:boolean" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">false</footNoteBasedInd>
+         <payerName xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">Allan Davis</payerName>
          <payerAddress xsi:type="dto:PayerAddressDTO" xmlns:dto="http://dto.webservice.healthlogic.boa.com">
-            <cityNm xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">?</cityNm>
-            <companyWebsite xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">?</companyWebsite>
-            <stateCode xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">?</stateCode>
-            <streetAddressLine1 xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">?</streetAddressLine1>
-            <streetAddressLine2 xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">?</streetAddressLine2>
-            <streetAddressLine3 xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">?</streetAddressLine3>
-            <zipCode xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">?</zipCode>
+            <cityNm xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">decatur</cityNm>
+            <companyWebsite xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"></companyWebsite>
+            <stateCode xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">GA</stateCode>
+            <streetAddressLine1 xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">123 Main St.</streetAddressLine1>
+            <streetAddressLine2 xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"></streetAddressLine2>
+            <streetAddressLine3 xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"></streetAddressLine3>
+            <zipCode xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">30030</zipCode>
          </payerAddress>
       </ser:getEDCPayer>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="https://dev-hlsc.bankofamerica.com/HealthLogicServices/WebServices/PayerEncounterService/PayerEncounterServiceEndPoint/getEDCPayerRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="getEFTPayer" bindingOperationName="getEFTPayer" type="Request-Response" outputName="getEFTPayerResponse" inputName="getEFTPayerRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dev-hlsc.bankofamerica.com/HealthLogicServices/WebServices/PayerEncounterService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.webservices.healthlogic.boa.com">
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="https://dev-hlsc.bankofamerica.com/HealthLogicServices/WebServices/PayerEncounterService/PayerEncounterServiceEndPoint/getEDCPayerRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Request 2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://dev-hlsc.bankofamerica.com/HealthLogicServices/WebServices/PayerEncounterService</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
+  <env:Body>
+    <n1:getEDCPayer xmlns:n1="urn:ActionWebService"
+        env:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+      <authorizationKey xsi:type="xsd:string">AP-WEBSERVICE-V01.00</authorizationKey>
+      <sourceSystemCode xsi:type="xsd:string">RM</sourceSystemCode>
+      <abaNumber xsi:type="xsd:string">000001</abaNumber>
+      <ddaNumber xsi:type="xsd:string">1111111</ddaNumber>
+      <payerName xsi:type="xsd:string">Allan Davis</payerName>
+      <footnotePayer xsi:type="xsd:boolean">false</footnotePayer>
+      <payerAddress xsi:type="n1:PayerAddressDTO">
+        <zip_code xsi:type="xsd:string">30030</zip_code>
+        <address_line_2 xsi:nil="true"></address_line_2>
+        <state_code xsi:type="xsd:string">GA</state_code>
+        <address_line_1 xsi:type="xsd:string">123 Main St.</address_line_1>
+        <city_name xsi:type="xsd:string">decatur</city_name>
+        <address_line_3 xsi:nil="true"></address_line_3>
+      </payerAddress>
+    </n1:getEDCPayer>
+  </env:Body>
+</env:Envelope>
+]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="https://dev-hlsc.bankofamerica.com/HealthLogicServices/WebServices/PayerEncounterService/PayerEncounterServiceEndPoint/getEDCPayerRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="getEFTPayer" bindingOperationName="getEFTPayer" type="Request-Response" outputName="getEFTPayerResponse" inputName="getEFTPayerRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dev-hlsc.bankofamerica.com/HealthLogicServices/WebServices/PayerEncounterService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.webservices.healthlogic.boa.com">
    <soapenv:Header/>
    <soapenv:Body>
       <ser:getEFTPayer soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
@@ -646,4 +672,101 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          <payerName xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">?</payerName>
       </ser:getEFTPayer>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="https://dev-hlsc.bankofamerica.com/HealthLogicServices/WebServices/PayerEncounterService/PayerEncounterServiceEndPoint/getEFTPayerRequest"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:sensitiveInformation/></con:soapui-project>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="https://dev-hlsc.bankofamerica.com/HealthLogicServices/WebServices/PayerEncounterService/PayerEncounterServiceEndPoint/getEFTPayerRequest"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="PayerEncounterServiceBinding" type="wsdl" bindingName="{urn:ActionWebService}PayerEncounterServiceBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:3000/payer_encounter_service/wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:3000/payer_encounter_service/wsdl"><con:part><con:url>http://localhost:3000/payer_encounter_service/wsdl</con:url><con:content><![CDATA[<definitions name="" targetNamespace="urn:ActionWebService" xmlns:typens="urn:ActionWebService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema targetNamespace="urn:ActionWebService" xmlns="http://www.w3.org/2001/XMLSchema">
+      <xsd:complexType name="PayerAddressDTO">
+        <xsd:all>
+          <xsd:element name="streetAddressLine2" type="xsd:string"/>
+          <xsd:element name="streetAddressLine3" type="xsd:string"/>
+          <xsd:element name="cityNm" type="xsd:string"/>
+          <xsd:element name="stateCode" type="xsd:string"/>
+          <xsd:element name="zipCode" type="xsd:string"/>
+          <xsd:element name="streetAddressLine1" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="get_eft_payer">
+    <part name="company_id" type="xsd:string"/>
+    <part name="payer_name" type="xsd:string"/>
+  </message>
+  <message name="get_eft_payerResponse"></message>
+  <message name="getEDCPayer">
+    <part name="authorizationKey" type="xsd:string"/>
+    <part name="sourceSystemCode" type="xsd:string"/>
+    <part name="abaNumber" type="xsd:string"/>
+    <part name="ddaNumber" type="xsd:string"/>
+    <part name="payerName" type="xsd:string"/>
+    <part name="footNoteBasedInd" type="xsd:boolean"/>
+    <part name="payerAddress" type="typens:PayerAddressDTO"/>
+  </message>
+  <message name="getEDCPayerResponse">
+    <part name="return" type="xsd:boolean"/>
+  </message>
+  <portType name="PayerEncounterServicePort">
+    <operation name="get_eft_payer">
+      <input message="typens:get_eft_payer"/>
+      <output message="typens:get_eft_payerResponse"/>
+    </operation>
+    <operation name="getEDCPayer">
+      <input message="typens:getEDCPayer"/>
+      <output message="typens:getEDCPayerResponse"/>
+    </operation>
+  </portType>
+  <binding name="PayerEncounterServiceBinding" type="typens:PayerEncounterServicePort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"/>
+    <operation name="get_eft_payer">
+      <soap:operation soapAction="/payer_encounter_service/api/get_eft_payer"/>
+      <input>
+        <soap:body namespace="urn:ActionWebService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:ActionWebService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getEDCPayer">
+      <soap:operation soapAction="/payer_encounter_service/api/getEDCPayer"/>
+      <input>
+        <soap:body namespace="urn:ActionWebService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:ActionWebService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="Service">
+    <port name="PayerEncounterServicePort" binding="typens:PayerEncounterServiceBinding">
+      <soap:address location="http://localhost:3000/payer_encounter_service/api"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:3000/payer_encounter_service/api</con:endpoint></con:endpoints><con:operation isOneWay="false" action="/payer_encounter_service/api/get_eft_payer" name="get_eft_payer" bindingOperationName="get_eft_payer" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:3000/payer_encounter_service/api</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:ActionWebService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:get_eft_payer soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <company_id xsi:type="xsd:string">?</company_id>
+         <payer_name xsi:type="xsd:string">?</payer_name>
+      </urn:get_eft_payer>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="/payer_encounter_service/api/get_eft_payer"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="/payer_encounter_service/api/getEDCPayer" name="getEDCPayer" bindingOperationName="getEDCPayer" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:3000/payer_encounter_service/api</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.webservices.healthlogic.boa.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:getEDCPayer soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <authorizationKey xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">AP-WEBSERVICE-V01.00</authorizationKey>
+         <sourceSystemCode xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">RM</sourceSystemCode>
+         <abaNumber xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">000001</abaNumber>
+         <ddaNumber xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">1111111</ddaNumber>
+         <footNoteBasedInd xsi:type="soapenc:boolean" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">false</footNoteBasedInd>
+         <payerName xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">Allan Davis</payerName>
+         <payerAddress xsi:type="dto:PayerAddressDTO" xmlns:dto="http://dto.webservice.healthlogic.boa.com">
+            <cityNm xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">decatur</cityNm>
+            <companyWebsite xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"></companyWebsite>
+            <stateCode xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">GA</stateCode>
+            <streetAddressLine1 xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">123 Main St.</streetAddressLine1>
+            <streetAddressLine2 xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"></streetAddressLine2>
+            <streetAddressLine3 xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"></streetAddressLine3>
+            <zipCode xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">30030</zipCode>
+         </payerAddress>
+      </ser:getEDCPayer>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="/payer_encounter_service/api/getEDCPayer"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:sensitiveInformation/></con:soapui-project>

@@ -1,0 +1,57 @@
+<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.webservices.healthlogic.boa.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:getEDCPayer soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <authorizationKey xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">AP-WEBSERVICE-V01.00</authorizationKey>
+         <sourceSystemCode xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">RM</sourceSystemCode>
+         <abaNumber xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">000001</abaNumber>
+         <ddaNumber xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">1111111</ddaNumber>
+         <footNoteBasedInd xsi:type="soapenc:boolean" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">false</footNoteBasedInd>
+         <payerName xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">Allan Davis</payerName>
+         <payerAddress xsi:type="dto:PayerAddressDTO" xmlns:dto="http://dto.webservice.healthlogic.boa.com">
+            <cityNm xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">decatur</cityNm>
+            <companyWebsite xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"></companyWebsite>
+            <stateCode xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">GA</stateCode>
+            <streetAddressLine1 xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">123 Main St.</streetAddressLine1>
+            <streetAddressLine2 xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"></streetAddressLine2>
+            <streetAddressLine3 xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"></streetAddressLine3>
+            <zipCode xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">30030</zipCode>
+         </payerAddress>
+      </ser:getEDCPayer>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Body>
+      <ns1:getEDCPayerResponse soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns1="http://service.webservices.healthlogic.boa.com">
+         <getEDCPayerReturn href="#id0"/>
+      </ns1:getEDCPayerResponse>
+      <multiRef id="id0" soapenc:root="0" soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xsi:type="ns2:PayerEncounterEDCResponse" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns2="http://dto.webservice.healthlogic.boa.com">
+         <abaNumber xsi:type="soapenc:string">000001</abaNumber>
+         <ddaNumber xsi:type="soapenc:string">1111111</ddaNumber>
+         <errorCode href="#id1"/>
+         <errorMessage xsi:type="soapenc:string" xsi:nil="true"/>
+         <footNoteBasedInd href="#id2"/>
+         <gateway xsi:type="soapenc:string" xsi:nil="true"/>
+         <originalGateway xsi:type="soapenc:string">HLSC</originalGateway>
+         <originalPayerId xsi:type="soapenc:string">UXZVD</originalPayerId>
+         <payerAddress href="#id3"/>
+         <payerId xsi:type="soapenc:string" xsi:nil="true"/>
+         <payerName xsi:type="soapenc:string">Allan Davis</payerName>
+         <reasonCodeSetName xsi:type="soapenc:string">A43_UXZVD</reasonCodeSetName>
+         <successIndicator href="#id4"/>
+      </multiRef>
+      <multiRef id="id4" soapenc:root="0" soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xsi:type="soapenc:boolean" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">true</multiRef>
+      <multiRef id="id1" soapenc:root="0" soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xsi:type="xsd:int" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">0</multiRef>
+      <multiRef id="id3" soapenc:root="0" soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xsi:type="ns3:PayerAddressDTO" xmlns:ns3="http://dto.webservice.healthlogic.boa.com" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+         <cityNm xsi:type="soapenc:string">decatur</cityNm>
+         <companyWebsite xsi:type="soapenc:string" xsi:nil="true"/>
+         <stateCode xsi:type="soapenc:string">GA</stateCode>
+         <streetAddressLine1 xsi:type="soapenc:string">123 Main St.</streetAddressLine1>
+         <streetAddressLine2 xsi:type="soapenc:string" xsi:nil="true"/>
+         <streetAddressLine3 xsi:type="soapenc:string" xsi:nil="true"/>
+         <zipCode xsi:type="soapenc:string">30030</zipCode>
+      </multiRef>
+      <multiRef id="id2" soapenc:root="0" soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xsi:type="soapenc:boolean" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">false</multiRef>
+   </soapenv:Body>
+</soapenv:Envelope>

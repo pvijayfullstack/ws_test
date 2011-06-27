@@ -37,3 +37,25 @@ Revservice::PayerEncounterHelper.get_edc_payer("000001", "1111111", "Allan Davis
 #	config/webservices.yml
 #	lib/pm_client.rb
 #	lib/xmlrpc_client_patch.rb
+
+
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   Revremit-soapui-project.xml
+#	modified:   app/controllers/payer_encounter_service_controller.rb
+#	modified:   lib/net_http_client_patch.rb
+#	modified:   lib/xmlrpc_client_patch.rb
+#	modified:   vendor/plugins/revservice/lib/app/models/payer_mapping_service/payer_address_dto.rb
+#	modified:   vendor/plugins/revservice/lib/app/services/payer_encounter_api.rb
+#	modified:   vendor/plugins/revservice/lib/revservice.rb
+#	modified:   vendor/plugins/revservice/lib/revservice/base.rb
+#	modified:   vendor/plugins/revservice/lib/revservice/payer_encounter_helper.rb
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	pay_enc.txt
+no changes added to commit (use "git add" and/or "git commit -a")

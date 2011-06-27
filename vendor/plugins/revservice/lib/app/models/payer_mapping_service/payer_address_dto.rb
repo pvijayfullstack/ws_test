@@ -1,13 +1,15 @@
 module PayerMappingService
 
   class PayerAddressDTO < ActionWebService::Struct
-    member :address_line_1, :string
-    member :address_line_2, :string
-    member :address_line_3, :string
-    member :city_name, :string
-    member :state_code, :string
-    member :zip_code, :string
+    member :streetAddressLine1, :string
+    member :streetAddressLine2, :string
+    member :streetAddressLine3, :string
+    member :cityNm, :string
+    member :stateCode, :string
+    member :zipCode, :string
     # member :website, :string
+    
+    #alias streetAddressLine1 address_line_1
   end
 
 end
